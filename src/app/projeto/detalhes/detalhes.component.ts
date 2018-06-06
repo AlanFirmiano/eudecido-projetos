@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { AppService } from '../../app.service';
 
 declare var Materialize:any;
@@ -8,11 +8,10 @@ declare var Materialize:any;
   templateUrl: './detalhes.component.html',
   styleUrls: ['./detalhes.component.css']
 })
-export class DetalhesComponent implements OnInit {
+export class DetalhesComponent implements OnInit, AfterViewInit {
   private texto;
   private ob: any;
   private usuario;
-  
   constructor(private router: Router, private service: AppService) {
     this.ob = this.service.ob;
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
@@ -20,8 +19,20 @@ export class DetalhesComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.ob);
+    
   }
-
+  ngAfterViewInit(){
+    this.projeto();
+  }
+  projeto(){
+    if(this.ob)
+    this.service.getProjeto(this.ob._id).subscribe(
+      res =>{
+        console.log(res)
+        this.ob = res;
+      }
+    );
+  }
   removerAll(){
     
     for(let i = 0; i<this.ob.likes.length;i++){

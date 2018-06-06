@@ -1,19 +1,42 @@
-<h5>{{ob.nome}}</h5>
-<h6>{{ob.descricao}}</h6>
-<h6>Valor: R${{ob.valor}}</h6>
+<h5 class="teal-text text-darken-2">{{ob?.nome}}</h5>
+<h6 class="teal-text text-darken-2">{{ob?.descricao}}</h6>
+<h6 class="teal-text text-darken-2">Envolvidos : </h6>
+<div class="chip teal white-text" *ngFor="let it of ob?.envolvidos">
+  {{it.nome}}
+</div>
+<h6 class="teal-text text-darken-2">A Favor : </h6>
+<div class="chip green white-text" *ngFor="let it of ob?.afavor">
+  {{it.nome}}
+</div>
+<h6 class="teal-text text-darken-2">Contra : </h6>
+<div class="chip red white-text" *ngFor="let it of ob?.contra">
+  {{it.nome}}
+</div>
+
+<h6 class="teal-text text-darken-2">Valor: R${{ob?.valor}}</h6>
 <div>
-  <agm-map [latitude]="ob.latitude" [longitude]="ob.longitude" [zoom]="15">
-    <agm-marker [latitude]="ob.latitude" [longitude]="ob.longitude"></agm-marker>
+  <h5 class="teal-text text-darken-2">
+    <i class="material-icons">location_on</i>Localização</h5>
+  <agm-map [latitude]="ob?.latitude" [longitude]="ob?.longitude" [zoom]="15">
+    <agm-marker [latitude]="ob?.latitude" [longitude]="ob?.longitude"></agm-marker>
   </agm-map>
 </div>
 <div class="row">
   <div class="col s6 m3 l2">
     <a (click)="bom()">
-      <i class="material-icons">thumb_up</i>Gostei {{ob.likes.length}}</a>
+      <i class="material-icons">thumb_up</i>Gostei {{ob?.likes.length}}</a>
   </div>
   <div class="col s6 m3 l2">
     <a (click)="ruim()">
-      <i class="material-icons">thumb_down</i>Não Gostei {{ob.deslikes.length}}</a>
+      <i class="material-icons">thumb_down</i>Não Gostei {{ob?.deslikes.length}}</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m6 l6">
+
+  </div>
+  <div class="col s12 m6 l6">
+
   </div>
 </div>
 <div class="row">
@@ -33,10 +56,10 @@
   </form>
 </div>
 <div class="row">
-  <div class="card" *ngFor="let item of ob.comentarios">
+  <div class="card" *ngFor="let item of ob?.comentarios">
     <div class="card-content">
-      
-      <p>{{item.texto}}</p>
-      </div>
+
+      <p>{{item?.texto}}</p>
+    </div>
   </div>
 </div>

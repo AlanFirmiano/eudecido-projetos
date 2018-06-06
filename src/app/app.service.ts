@@ -73,6 +73,40 @@ export class AppService {
         ));
   }
 
+  getProjeto(id):Observable<any> {
+    this.ob=(this.ob)?this.ob:{_id:""}
+    return this.http.get(this.apiUrl + 'projetos/'+id+"?populate=envolvidos&populate=afavor&populate=contra", this.options)
+      .pipe(
+        map(
+          res => {
+            console.log(res.json())
+            return res.json()
+          }
+        ));
+  }
+
+  getPolitico(id):Observable<any> {
+    return this.http.get(this.apiUrl + 'politicos/'+id, this.options)
+      .pipe(
+        map(
+          res => {
+            console.log(res.json())
+            return res.json()
+          }
+        ));
+  }
+
+  buscarPoliticos(): Observable<any> {
+    return this.http.get(this.apiUrl + 'politicos', this.options)
+      .pipe(
+        map(
+          res => {
+            console.log(res.json())
+            return res.json()
+          }
+        ));
+  }
+
   ranking(): Observable<any> {
     return this.http.get(this.apiUrl + 'projetos/rank', this.options)
       .pipe(

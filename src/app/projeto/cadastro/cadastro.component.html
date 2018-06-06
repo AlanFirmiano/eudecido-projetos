@@ -18,8 +18,26 @@
           <input id="valor" type="number" name="valor" [(ngModel)]="projeto.valor">
           <label for="valor">R$ Valor</label>
         </div>
-      
-        
+        <div class="input-field col s12">
+            <select multiple [(ngModel)]="projeto.envolvidos" [ngModelOptions]="{standalone: true}" materialize="material_select" [materializeSelectOptions]="politicos">
+              
+              <option *ngFor="let item of politicos" value="{{item._id}}">{{item.nome}}</option>
+            </select>
+            <label>Politicos Envolvidos</label>
+          </div>
+          <div class="input-field col s12">
+              <select multiple [(ngModel)]="projeto.afavor" [ngModelOptions]="{standalone: true}" materialize="material_select" [materializeSelectOptions]="politicos">
+                
+                <option *ngFor="let item of politicos" value="{{item._id}}">{{item.nome}}</option>
+              </select>
+              <label>A Favor</label>
+            </div>
+            <div class="input-field col s12">
+                <select multiple [(ngModel)]="projeto.contra" [ngModelOptions]="{standalone: true}" materialize="material_select" [materializeSelectOptions]="politicos">                  
+                  <option *ngFor="let item of politicos" value="{{item._id}}">{{item.nome}}</option>
+                </select>
+                <label>Contra</label>
+              </div>
       </div>
     </form>
     
@@ -28,6 +46,7 @@
 
   </div>
   <div class="col s12">
+    <h5 class="teal-text text-darken-2"><i class="material-icons">location_on</i>Escolha a Localização do Projeto</h5>
       <agm-map [latitude]="projeto.latitude" [longitude]="projeto.longitude" [zoom]="15" (mapClick)="placeMarker($event)">
           <agm-marker [latitude]="projeto.latitude" [longitude]="projeto.longitude"></agm-marker>
         </agm-map>
