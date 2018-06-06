@@ -1,0 +1,35 @@
+<div class="row">
+<div class="col s3">
+
+</div>
+<div class="col s6 ">
+  <h5 class="teal-text text-darken-2">Cadastro de Usuario</h5>
+  <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="nome" type="text" name="nome" [(ngModel)]="usuario.nome">
+          <label for="nome">Nome</label>
+        </div>
+    
+        <div class="input-field col s12">
+          <input id="login" type="text" name="login" [(ngModel)]="usuario.login">
+          <label for="login">Login</label>
+        </div>
+    
+        <div class="input-field col s12">
+          <input id="senha" type="password" name="senha" [(ngModel)]="usuario.senha">
+          <label for="senha">Senha</label>
+        </div>
+    
+        <div class="col s12">
+          <a class="btn waves-effect waves-light teal darken-3" [class.disabled]="cadastro.invalid" (click)="salvar()">
+            <i class="material-icons left">done</i>Salvar
+          </a>
+        </div>
+      </div>
+    </form>
+</div>
+<div class="col s3">
+
+</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container valign-wrapper login-wrapper">
+    <form class="card login-card">
+  
+      <!--div class="card-image login-image">
+        <img src="assets/img/logo.png" alt="Sistema de Gestão de Inventário - SGI" />
+      </div-->
+      <div class="row">
+  
+      <div class="card-content valign-wrapper">
+        <div class="row no-margin">
+          <div class="input-field col s12">
+            <input id="login" type="text" name="login" [(ngModel)]="login" />
+            <label for="login">Login</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="senha" type="password" name="senha" [(ngModel)]="senha"/>
+            <label for="senha">Senha</label>
+          </div>
+          <div class="col s6">
+            <button type="submit" name="action" class="btn-large btn-login block waves-effect waves-light teal darken-3" (click)="logar()">Entrar</button>
+          </div>
+          <div class="col s6">
+            <a routerLink="/cadastroUser">Cadastre-se</a>
+          </div>
+        </div>
+      </div>
+      </div>
+  
+    </form>
+  </div>
