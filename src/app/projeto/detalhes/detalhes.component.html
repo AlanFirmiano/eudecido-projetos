@@ -1,3 +1,42 @@
+<h5>{{ob.nome}}</h5>
+<h6>{{ob.descricao}}</h6>
+<h6>Valor: R${{ob.valor}}</h6>
 <div>
-  detalhes
+  <agm-map [latitude]="ob.latitude" [longitude]="ob.longitude" [zoom]="15">
+    <agm-marker [latitude]="ob.latitude" [longitude]="ob.longitude"></agm-marker>
+  </agm-map>
+</div>
+<div class="row">
+  <div class="col s6 m3 l2">
+    <a (click)="bom()">
+      <i class="material-icons">thumb_up</i>Gostei {{ob.likes.length}}</a>
+  </div>
+  <div class="col s6 m3 l2">
+    <a (click)="ruim()">
+      <i class="material-icons">thumb_down</i>Não Gostei {{ob.deslikes.length}}</a>
+  </div>
+</div>
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12 m8 l8">
+        <i class="material-icons prefix">textsms</i>
+        <textarea id="textarea1" class="materialize-textarea" [(ngModel)]="texto" [ngModelOptions]="{standalone: true}"></textarea>
+        <label for="textarea1">Post</label>
+      </div>
+      <div>
+        <button class="btn btn-floating" (click)="comentar()">
+          <i class="material-icons">send</i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="row">
+  <div class="card" *ngFor="let item of ob.comentarios">
+    <div class="card-content">
+      
+      <p>{{item.texto}}</p>
+      </div>
+  </div>
 </div>

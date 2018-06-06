@@ -1,10 +1,10 @@
 <nav class="teal">
   <div class="nav-wrapper">
     <a href="#" class="brand-logo right"><i class="thumbs_up_down"></i>EuDecido</a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
+    <ul *ngIf="token" id="nav-mobile" class="left hide-on-med-and-down">
       <li routerLinkActive="active"><a routerLink="/lista">Projetos</a></li>
-      <li routerLinkActive="active"><a routerLink="/ranking">Sugestões</a></li>
-      <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+      <li  routerLinkActive="active"><a routerLink="/ranking">Sugestões</a></li>
+      <li><a (click)="deslogar()">Sair</a></li>
     </ul>
   </div>
 </nav>

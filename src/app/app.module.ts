@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MaterializeModule } from 'angular2-materialize';
 
@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { HttpModule } from '@angular/http';
 import { AppService } from './app.service';
 import { CadastroUserComponent } from './login/cadastro/cadastroUser.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,15 @@ import { CadastroUserComponent } from './login/cadastro/cadastroUser.component';
     MaterializeModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCnx7rLXtFCWwOWmBYxXyjX6FajutHqsLI'
+    }),
   ],
-  providers: [AppService],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'pt-BR'  },
+    AppService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

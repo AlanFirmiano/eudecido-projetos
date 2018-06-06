@@ -1,36 +1,40 @@
 <div class="row">
-<div class="col s3">
+  <div class="col s12 text-center">
+    <h5 class="teal-text text-darken-2">Cadastro de Projeto</h5>
 
-</div>
-<div class="col s6 text-center">
-  <h5 class="teal-text text-darken-2">Cadastro de Projeto</h5>
-
-  <form class="col s12">
+    <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
           <input id="nome" type="text" name="nome" [(ngModel)]="projeto.nome">
           <label for="nome">Nome</label>
         </div>
-    
+
         <div class="input-field col s12">
           <input id="descricao" type="text" name="descricao" [(ngModel)]="projeto.descricao">
           <label for="descricao">Descricao</label>
         </div>
-    
+
         <div class="input-field col s12">
-          <input id="valor" type="text" name="valor" [(ngModel)]="projeto.valor">
+          <input id="valor" type="number" name="valor" [(ngModel)]="projeto.valor">
           <label for="valor">R$ Valor</label>
         </div>
-    
-        <div class="col s12">
-          <a class="btn waves-effect waves-light teal darken-3" [class.disabled]="cadastro.invalid" (click)="salvar()">
-            <i class="material-icons left">done</i>Salvar
-          </a>
-        </div>
+      
+        
       </div>
     </form>
-</div>
-<div class="col s3">
+    
+  </div>
+  <div class="col s3">
 
-</div>
+  </div>
+  <div class="col s12">
+      <agm-map [latitude]="projeto.latitude" [longitude]="projeto.longitude" [zoom]="15" (mapClick)="placeMarker($event)">
+          <agm-marker [latitude]="projeto.latitude" [longitude]="projeto.longitude"></agm-marker>
+        </agm-map>
+  </div>
+  <div class="col s12">
+      <a class="btn waves-effect waves-light teal darken-3" (click)="salvar()">
+        <i class="material-icons left">done</i>Salvar
+      </a>
+    </div>
 </div>

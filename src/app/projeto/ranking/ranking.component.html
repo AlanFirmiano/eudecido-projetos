@@ -1,3 +1,10 @@
 <div>
-  <h5 class="teal-text text-darken-2">Ranking</h5>
+  <h5 class="teal-text text-darken-2">Ranking<i class="material-icons">star</i></h5>
+      <div class="card" *ngFor="let item of rank">
+        <div class="card-content">
+          <p class="grey-text text-darken-1"><b>{{(rank.indexOf(item))+1}}º - {{item.nome}}</b>
+            
+          </p>
+        </div>
+      </div>
 </div>

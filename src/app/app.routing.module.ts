@@ -10,6 +10,7 @@ import { RankingComponent } from './projeto/ranking/ranking.component';
 import { CadastroUserComponent } from './login/cadastro/cadastroUser.component';
 
 const appRoutes: Routes = [
+  { path: '', component: LoginComponent},
   { path: 'cadastro', component: CadastroComponent},
   { path: 'cadastroUser', component: CadastroUserComponent},
   { path: 'login', component: LoginComponent},

@@ -9,10 +9,19 @@ declare var Materialize:any;
   styleUrls: ['./ranking.component.css']
 })
 export class RankingComponent implements OnInit {
-
+  rank = [];
   constructor(private router: Router, private service: AppService) { }
 
   ngOnInit() {
+    this.lista();
+  }
+
+  lista(){
+    this.service.ranking().subscribe(
+      res =>{
+        this.rank = res;
+      }
+    )
   }
 
 }
